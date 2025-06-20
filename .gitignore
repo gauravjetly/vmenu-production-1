@@ -1,1 +1,72 @@
+# Dependencies
+node_modules/
+**/node_modules/
+
+# Environment files
+.env
+.env.local
+.env.production
+**/.env
+
+# Build outputs
+dist/
+build/
+**/dist/
+**/build/
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+logs/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Terraform
+*.tfstate
+*.tfstate.*
+.terraform/
+**/.terraform/
+infrastructure/terraform/.terraform/
+.terraform.lock.hcl
+terraform.tfvars
+tfplan*
+
+# Docker
+docker-compose.override.yml
+
+# Temporary files
+*.tmp
+*.temp
 generated-secrets.txt
+create-cert-validation.json
+configure-dns-vintiq.json
+terraform-outputs.txt
+
+# Uploads
+uploads/
+**/uploads/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv
+
+# Certificates
+*.pem
+*.key
+*.crt
