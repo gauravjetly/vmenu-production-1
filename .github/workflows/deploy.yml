@@ -50,8 +50,8 @@ jobs:
       - name: Build and push Backend image
         uses: docker/build-push-action@v5
         with:
-          context: ./vmenu-production/backend
-          file: ./vmenu-production/backend/Dockerfile
+          context: ./backend
+          file: ./backend/Dockerfile
           push: true
           tags: |
             ${{ steps.login-ecr.outputs.registry }}/${{ env.ECR_REPOSITORY_PREFIX }}-backend:${{ github.sha }}
@@ -62,8 +62,8 @@ jobs:
       - name: Build and push Frontend image
         uses: docker/build-push-action@v5
         with:
-          context: ./vmenu-production/frontend
-          file: ./vmenu-production/frontend/Dockerfile
+          context: ./frontend
+          file: ./frontend/Dockerfile
           push: true
           tags: |
             ${{ steps.login-ecr.outputs.registry }}/${{ env.ECR_REPOSITORY_PREFIX }}-frontend:${{ github.sha }}
@@ -77,8 +77,8 @@ jobs:
       - name: Build and push WebSocket image
         uses: docker/build-push-action@v5
         with:
-          context: ./vmenu-production/backend
-          file: ./vmenu-production/backend/Dockerfile.websocket
+          context: ./backend
+          file: ./backend/Dockerfile.websocket
           push: true
           tags: |
             ${{ steps.login-ecr.outputs.registry }}/${{ env.ECR_REPOSITORY_PREFIX }}-websocket:${{ github.sha }}

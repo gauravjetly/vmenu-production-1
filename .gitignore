@@ -70,3 +70,12 @@ venv/
 *.pem
 *.key
 *.crt
+
+# Archive directory
+archive/
+
+# Sensitive files
+*_SECRETS*
+*_CREDENTIALS*
+*secrets*
+*credentials*
