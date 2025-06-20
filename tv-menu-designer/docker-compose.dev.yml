@@ -1,0 +1,99 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:15-alpine
+    container_name: tvmenu-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: tvmenu
+      POSTGRES_PASSWORD: tvmenu_dev_2024
+      POSTGRES_DB: tvmenu_designer
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./packages/backend/src/database/migrations:/docker-entrypoint-initdb.d
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U tvmenu"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  redis:
+    image: redis:7-alpine
+    container_name: tvmenu-redis
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+    command: redis-server --appendonly yes
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  backend:
+    build: 
+      context: .
+      dockerfile: ./packages/backend/Dockerfile
+    container_name: tvmenu-backend
+    restart: unless-stopped
+    ports:
+      - "3003:3003"
+    environment:
+      NODE_ENV: development
+      PORT: 3003
+      DB_HOST: postgres
+      DB_PORT: 5432
+      DB_USER: tvmenu
+      DB_PASSWORD: tvmenu_dev_2024
+      DB_NAME: tvmenu_designer
+      REDIS_URL: redis://redis:6379
+      JWT_SECRET: tv_menu_jwt_secret_dev_2024
+      JWT_REFRESH_SECRET: tv_menu_refresh_secret_dev_2024
+      CORS_ORIGIN: http://localhost:3002
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    volumes:
+      - ./packages/backend:/app/packages/backend
+      - ./packages/shared:/app/packages/shared
+      - ./uploads:/app/uploads
+      - /app/node_modules
+      - /app/packages/backend/node_modules
+      - /app/packages/shared/node_modules
+    command: npm run dev -w @tv-menu-designer/backend
+
+  designer:
+    build:
+      context: .
+      dockerfile: ./packages/designer/Dockerfile
+    container_name: tvmenu-designer
+    restart: unless-stopped
+    ports:
+      - "3002:3002"
+    environment:
+      VITE_API_URL: http://localhost:3003
+      VITE_WS_URL: ws://localhost:3003
+    depends_on:
+      - backend
+    volumes:
+      - ./packages/designer:/app/packages/designer
+      - ./packages/shared:/app/packages/shared
+      - /app/node_modules
+      - /app/packages/designer/node_modules
+      - /app/packages/shared/node_modules
+    command: npm run dev -w @tv-menu-designer/designer
+
+volumes:
+  postgres_data:
+  redis_data:
+
+networks:
+  default:
+    name: tvmenu-network

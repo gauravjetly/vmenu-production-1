@@ -1,0 +1,33 @@
+
+> @tv-menu-designer/designer@1.0.0 dev
+> vite
+
+[33mThe CJS build of Vite's Node API is deprecated. See https://vite.dev/guide/troubleshooting.html#vite-cjs-node-api-deprecated for more details.[39m
+
+  VITE v5.4.19  ready in 134 ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: http://192.168.10.95:5173/
+  ➜  Network: http://192.168.10.166:5173/
+1:00:52 PM [vite] vite.config.ts changed, restarting server...
+1:00:52 PM [vite] server restarted.
+1:09:17 PM [vite] hmr update /src/components/MenuCanvas.tsx, /src/styles/index.css
+1:09:26 PM [vite] hmr update /src/components/MenuCanvas.tsx, /src/styles/index.css
+1:26:40 PM [vite] hmr update /src/components/MenuCanvas.tsx, /src/styles/index.css
+1:26:50 PM [vite] hmr update /src/components/MenuCanvas.tsx, /src/styles/index.css
+1:27:08 PM [vite] hmr update /src/components/MenuCanvas.tsx, /src/styles/index.css
+1:27:20 PM [vite] hmr update /src/components/MenuCanvas.tsx, /src/styles/index.css
+1:27:20 PM [vite] hmr update /src/components/MenuCanvas.tsx, /src/styles/index.css
+1:27:45 PM [vite] hmr update /src/pages/DesignerPage.tsx, /src/styles/index.css
+1:29:29 PM [vite] hmr update /src/pages/TVDisplayPage.tsx, /src/styles/index.css
+1:29:38 PM [vite] hmr update /src/pages/DesignerPage.tsx, /src/styles/index.css
+1:30:03 PM [vite] hmr update /src/pages/TVDisplayPage.tsx, /src/styles/index.css
+1:30:39 PM [vite] hmr update /src/pages/TVDisplayPage.tsx, /src/styles/index.css
+1:30:53 PM [vite] hmr update /src/pages/TVDisplayPage.tsx, /src/styles/index.css
+1:31:05 PM [vite] hmr update /src/pages/TVDisplayPage.tsx, /src/styles/index.css
+1:31:18 PM [vite] hmr update /src/pages/TVDisplayPage.tsx, /src/styles/index.css
+1:32:06 PM [vite] page reload src/main.tsx
+1:35:29 PM [vite] page reload src/main.tsx
+1:59:25 PM [vite] hmr update /src/components/MenuCanvas.tsx, /src/styles/index.css
+2:41:12 PM [vite] hmr update /src/pages/DesignerPage.tsx, /src/styles/index.css
+2:41:39 PM [vite] hmr update /src/pages/LoginPage.tsx, /src/styles/index.css

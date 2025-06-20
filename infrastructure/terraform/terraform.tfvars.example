@@ -1,0 +1,10 @@
+# Terraform Variables for VMenu
+# Copy this to terraform.tfvars and update with your values
+
+# From generated secrets
+db_password = "i877xygvLLjOKNdje3durWJX"
+jwt_secret = "aHOYnRgFTy3e5EBrdhbbLx4T4J9FbQXiOteM+QV0zFU="
+jwt_refresh_secret = "hrIh4nxj9XVsCvoAHOQh8tG3Kgu6yztnmJ10EzP64m4="
+
+# You need to add this after creating SSL certificate in AWS
+certificate_arn = "arn:aws:acm:us-east-1:820242943945:certificate/YOUR_CERT_ID"

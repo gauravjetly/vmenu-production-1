@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Test Page</title>
+</head>
+<body>
+  <h1>Static Test Page</h1>
+  <p>If you can see this, the server is serving static files correctly.</p>
+  <div id="test"></div>
+  <script>
+    document.getElementById('test').innerHTML = '<p>JavaScript is working!</p>';
+    console.log('Test page loaded successfully');
+    
+    // Test API connection
+    fetch('/api/auth/login', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ username: 'demo', password: 'demo123' })
+    })
+    .then(res => res.json())
+    .then(data => {
+      console.log('API Response:', data);
+      document.getElementById('test').innerHTML += '<p>API is working! Check console for response.</p>';
+    })
+    .catch(err => {
+      console.error('API Error:', err);
+      document.getElementById('test').innerHTML += '<p>API Error! Check console for details.</p>';
+    });
+  </script>
+</body>
+</html>

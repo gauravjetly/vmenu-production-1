@@ -1,0 +1,7 @@
+alb_dns_name = "vintiq-alb-976178116.us-east-1.elb.amazonaws.com"
+ecr_backend_url = "820242943945.dkr.ecr.us-east-1.amazonaws.com/vintiq-backend"
+ecr_frontend_url = "820242943945.dkr.ecr.us-east-1.amazonaws.com/vintiq-frontend"
+ecr_websocket_url = "820242943945.dkr.ecr.us-east-1.amazonaws.com/vintiq-websocket"
+rds_endpoint = "vintiq-postgres.cibyaqe4u9si.us-east-1.rds.amazonaws.com:5432"
+redis_endpoint = "vintiq-redis.rndov6.0001.use1.cache.amazonaws.com"
+s3_bucket_name = "vintiq-uploads-production"
